@@ -6,13 +6,18 @@ const controls = [
   { label: "Salad", type: "salad" },
   { label: "Meat", type: "meat" },
   { label: "Bacon", type: "bacon" },
-  { label: "Chesse", type: "chesse" }
+  { label: "Cheese", type: "cheese" }
 ];
 
 const Buildcontrols = props => (
   <div className={classes.buildControls}>
     {controls.map(ctrl => (
-      <Buildcontrol key={ctrl.label} label={ctrl.label} />
+      <Buildcontrol
+        key={ctrl.label}
+        label={ctrl.label}
+        added={() => props.addIngerdeints(ctrl.type)}
+        removed={() => props.removeIngerdeints(ctrl.type)}
+      />
     ))}
   </div>
 );
