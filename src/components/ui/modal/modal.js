@@ -9,8 +9,7 @@ const Modal = props => (
     <div
       className={classes.Modal}
       style={{
-        transform: props.show ? "tranalteY(200)" : "tranalteY(-100vh)",
-        opacity: props.show ? "1" : "0"
+        display: props.show ? "block" : "none"
       }}
     >
       {props.children}

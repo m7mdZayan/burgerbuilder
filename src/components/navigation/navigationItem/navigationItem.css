@@ -1,17 +1,15 @@
+/**Mobiles **********8*/
 .navigationItem {
-  margin: 0;
-  display: flex;
+  margin: 10px 0;
+  display: block;
   box-sizing: border-box;
-  height: 100%;
-  align-items: center;
+  width: 100%;
 }
 
 .navigationItem a {
   text-decoration: none;
-  color: white;
-  height: 100%;
-  padding: 16px 10px;
-  border-bottom: 4px solid transparent;
+  color: #8f5c2c;
+  width: 100%;
   box-sizing: border-box;
   display: block;
 }
@@ -19,7 +17,31 @@
 .navigationItem a:hover,
 .navigationItem a.active,
 .navigationItem a:active {
-  background-color: #8f5c2c;
-  border-bottom: 4px solid #40a4c8;
-  color: white;
+  color: #40a4c8;
+}
+
+@media (min-width: 600px) {
+  .navigationItem {
+    margin: 0;
+    display: flex;
+    box-sizing: border-box;
+    height: 100%;
+    align-items: center;
+    width: auto;
+  }
+
+  .navigationItem a {
+    color: white;
+    height: 100%;
+    padding: 16px 10px;
+    border-bottom: 4px solid transparent;
+  }
+
+  .navigationItem a:hover,
+  .navigationItem a.active,
+  .navigationItem a:active {
+    background-color: #8f5c2c;
+    border-bottom: 4px solid #40a4c8;
+    color: white;
+  }
 }
