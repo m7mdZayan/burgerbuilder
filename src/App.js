@@ -2,15 +2,16 @@ import React from "react";
 import Layout from "./components/layout/layout";
 import BurgerBuilder from "./containers/burgerbuilder/burgerbuilder";
 import Checkout from "./containers/checkout/checkout";
+import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Layout>
-        <BurgerBuilder />
-        <Checkout />
+        <Route path="/" exact component={BurgerBuilder} />
+        <Route path="/checkout" exact component={Checkout} />
       </Layout>
-    </div>
+    </BrowserRouter>
   );
 }
 

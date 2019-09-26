@@ -2,6 +2,7 @@ import React from "react";
 import Burger from "../../burger/buger";
 import Button from "../../ui/button/button";
 import classes from "./checkoutSummary.css";
+import { Link } from "react-router-dom";
 
 const CheckoutSummary = props => {
   return (
@@ -9,7 +10,9 @@ const CheckoutSummary = props => {
       <h1>We hope it tastes well!</h1>
       <div style={{ width: "100%", margin: "auto" }}>
         <Burger ingerdients={props.ingerdients} style={{ width: "100%" }} />
-        <Button btnType="Danger">Cancel</Button>
+        <Link to="/">
+          <Button btnType="Danger">Cancel</Button>
+        </Link>
         <Button btnType="Success">Continue</Button>
       </div>
     </div>
