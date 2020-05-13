@@ -4,7 +4,7 @@ import Burger from "../../components/burger/buger";
 import Buildcontrols from "../../components/burger/buildcontrols/buildcontrols";
 import Modal from "../../components/ui/modal/modal";
 import OrderSummary from "../../components/burger/orderSummary/orderSummary";
-import axios from "../../axios-orders";
+
 import Spinner from "../../components/ui/spinner/spinner";
 
 const INGERDIENT_PRICE = {
@@ -92,24 +92,20 @@ class BurgerBuilder extends Component {
 
   purchaseContinue = () => {
     //alert("you continue !");
-    this.setState({ loading: true });
-    const order = {
-      ingerdients: this.state.ingerdients,
-      price: this.state.totalPrice,
-      customer: {
-        name: "Zayan",
-        address: "Mahalla"
-      },
-      email: "test@test.com"
-    };
-    axios
-      .post("/orders.json", order)
-      .then(response => {
-        this.setState({ loading: false, purchasing: false });
-      })
-      .catch(error => {
-        this.setState({ loading: false, purchasing: false });
-      });
+
+    const queryParams = [];
+    for (let i in this.state.ingerdients) {
+      queryParams.push(
+        encodeURIComponent(i) +
+          "=" +
+          encodeURIComponent(this.state.ingerdients[i])
+      );
+    }
+    const queryString = queryParams.join("&");
+    this.props.history.push({
+      pathname: "/checkout",
+      search: "?" + queryString
+    });
   };
   render() {
     const disabledInfo = {
